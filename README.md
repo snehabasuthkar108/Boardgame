@@ -92,4 +92,49 @@ docker run -d -p 8085:8080 sneha108/boardgame
 
 Application URL: http://localhost:8085
 
+---
+
+## 📸 Project Screenshots
+
+### 🔹 Jenkins Pipeline Execution
+Shows complete CI/CD pipeline stages execution.
+![Jenkins Pipeline](images/Jenkins%20pipeline.png)
+
+---
+
+### 🔹 Jenkins Console Output
+Build logs including Maven build, Docker build & push.
+![Jenkins Console](images/Jenkins%20console.png)
+
+---
+
+### 🔹 SonarQube Analysis Dashboard
+Static code analysis results including bugs, vulnerabilities and coverage.
+![SonarQube Dashboard](images/Sonarqube-1.png)
+
+---
+
+### 🔹 SonarQube Quality Gate
+Quality gate validation before deployment.
+![SonarQube Quality Gate](images/Sonarqube-2.png)
+
+---
+
+### 🔹 SonarQube Webhook Configuration
+Webhook configuration for real-time Quality Gate feedback to Jenkins.
+![SonarQube Webhook](images/Sonarqube-webhook.png)
+
+---
+
+### 🔹 DockerHub Repository
+Published Docker image repository.
+![DockerHub Repo](images/docker-repo.png)
+
+---
+
+### 🔹 Application Running in Docker
+Application successfully running on deployed container.
+![Application Running](images/Application.png)
+
+
 
