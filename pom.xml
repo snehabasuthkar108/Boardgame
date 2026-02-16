@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.javaproject</groupId>
-	<artifactId>database_service_project</artifactId>
+	<artifactId>Boardgame</artifactId>
 	<version>0.0.5-SNAPSHOT</version>
-	<name>database_service_project</name>
+	<name>Boardgame</name>
 	<description>Project for Spring Boot</description>
 	<packaging>jar</packaging>
 	<properties>
