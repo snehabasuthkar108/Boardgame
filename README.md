@@ -1,53 +1,95 @@
-# BoardgameListingWebApp
+# DevSecOps CI/CD Pipeline – Boardgame Application
 
-## Description 
+This project demonstrates a complete end-to-end DevSecOps pipeline built using Jenkins, SonarQube, Docker, and DockerHub for a Spring Boot application.
 
-**Board Game Database Full-Stack Web Application.**
-This web application displays lists of board games and their reviews. While anyone can view the board game lists and reviews, they are required to log in to add/ edit the board games and their reviews. The 'users' have the authority to add board games to the list and add reviews, and the 'managers' have the authority to edit/ delete the reviews on top of the authorities of users.  
+The base application was provided as a Java Spring Boot project. My primary focus was designing and implementing a production-style CI/CD pipeline integrating security, quality analysis, containerization, and automated deployment.
 
-## Technologies
+---
 
-- Java
-- Spring Boot
-- Amazon Web Services(AWS) EC2
-- Thymeleaf
-- Thymeleaf Fragments
-- HTML5
-- CSS
-- JavaScript
-- Spring MVC
-- JDBC
-- H2 Database Engine (In-memory)
-- JUnit test framework
-- Spring Security
-- Twitter Bootstrap
+## Project Architecture
+
+Developer → GitHub → Jenkins Pipeline →  
+✔ Build & Test →  
+✔ Gitleaks Security Scan →  
+✔ SonarQube Code Analysis →  
+✔ Quality Gate Validation →  
+✔ Docker Image Build →  
+✔ DockerHub Push →  
+✔ Automated Container Deployment  
+
+---
+
+## Tools & Technologies Used
+
+### CI/CD
+- Jenkins (Declarative Pipeline)
+
+### Build Tool
 - Maven
 
-## Features
+### Code Quality & Security
+- SonarQube (Static Code Analysis)
+- Gitleaks (Secret detection)
 
-- Full-Stack Application
-- UI components created with Thymeleaf and styled with Twitter Bootstrap
-- Authentication and authorization using Spring Security
-  - Authentication by allowing the users to authenticate with a username and password
-  - Authorization by granting different permissions based on the roles (non-members, users, and managers)
-- Different roles (non-members, users, and managers) with varying levels of permissions
-  - Non-members only can see the boardgame lists and reviews
-  - Users can add board games and write reviews
-  - Managers can edit and delete the reviews
-- Deployed the application on AWS EC2
-- JUnit test framework for unit testing
-- Spring MVC best practices to segregate views, controllers, and database packages
-- JDBC for database connectivity and interaction
-- CRUD (Create, Read, Update, Delete) operations for managing data in the database
-- Schema.sql file to customize the schema and input initial data
-- Thymeleaf Fragments to reduce redundancy of repeating HTML elements (head, footer, navigation)
+### Containerization
+- Docker (Multi-stage build)
+- DockerHub (Image repository)
 
-## How to Run
+### Application
+- Spring Boot (Java)
+- H2 Database
 
-1. Clone the repository
-2. Open the project in your IDE of choice
-3. Run the application
-4. To use initial user data, use the following credentials.
-  - username: bugs    |     password: bunny (user role)
-  - username: daffy   |     password: duck  (manager role)
-5. You can also sign-up as a new user and customize your role to play with the application! 😊
+---
+
+## Jenkins Pipeline Stages
+
+### 1️⃣ Code Checkout
+Pulls source code from GitHub repository.
+
+### 2️⃣ Compile
+Builds the application using Maven.
+
+### 3️⃣ Gitleaks Scan
+Scans repository for hardcoded secrets or credentials.
+
+### 4️⃣ Unit Tests
+Executes automated tests.
+
+### 5️⃣ SonarQube Analysis
+Performs static code analysis:
+- Code smells
+- Vulnerabilities
+- Bugs
+- Code coverage
+- Duplication
+
+### 6️⃣ Quality Gate
+Pipeline stops automatically if quality gate fails.
+
+### 7️⃣ Package
+Builds JAR artifact.
+
+### 8️⃣ Docker Build
+Creates a multi-stage optimized Docker image.
+
+### 9️⃣ Docker Push
+Pushes image to DockerHub.
+
+### 🔟 Deployment
+Stops existing container and deploys latest version automatically.
+
+---
+## Docker Image
+
+DockerHub Repository:
+
+https://hub.docker.com/r/sneha108/boardgame
+
+### Run Manually
+
+docker pull sneha108/boardgame:latest
+docker run -d -p 8085:8080 sneha108/boardgame 
+
+Application URL: http://localhost:8085
+
+
